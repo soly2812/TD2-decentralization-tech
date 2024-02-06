@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  commit:
+    paths:
+      - 'file.txt'
 
 jobs:
   deploy:
@@ -16,9 +19,9 @@ jobs:
     - name: Deploy to IPFS via Pinata
       uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
       with:
+        pin-name: 'file.txt'
         path: './file.txt'
         pinata-api-key: 0cfe2990da569c61a367
         pinata-secret-api-key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI3NTYwYTFmOS1kY2FkLTRkZmEtOWFkNC0xZTkxYjE1NDZlNGUiLCJlbWFpbCI6ImFubmUtc29sZW5lLml6YXJkQGVkdS5kZXZpbmNpLmZyIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9LHsiaWQiOiJOWUMxIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjBjZmUyOTkwZGE1NjljNjFhMzY3Iiwic2NvcGVkS2V5U2VjcmV0IjoiZDFmYTI5ZDMzMjQ3YTYwZDNhMzgzYzdmZTJhYTVjMzFlODk1YjUwNDJjZjZiMmYwNzc5ZWI0ZTY4MDNmMjk4OSIsImlhdCI6MTcwNzIzOTE0OX0.XyY1bE5n6ymniGXC8f99XKvYWedG8kvrXaDGKVhfkGc
         verbose: true
         remove-old: false
-        pinata-metadata: '{"cid": "QmWfVY9y3xjsixTgbd9AorQxH7VtMpzfx2HaWtsoUYecaX"}'
