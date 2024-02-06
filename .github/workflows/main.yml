@@ -2,9 +2,6 @@ name: Deploy to IPFS
 
 on:
   push:
-    branches:
-      - main
-  commit:
     paths:
       - 'file.txt'
 
